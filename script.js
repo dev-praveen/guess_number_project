@@ -4,6 +4,7 @@ let rndInt = Math.floor(Math.random() * 20) + 1
 //document.querySelector('.number').textContent = rndInt
 
 let scoreNumber = 20
+let highScore = 0
 document.querySelector('.again').addEventListener('click', function(){
 
     document.querySelector('body').style.backgroundColor='#222'
@@ -13,6 +14,7 @@ document.querySelector('.again').addEventListener('click', function(){
     scoreNumber = 20
     rndInt = Math.floor(Math.random() * 20) + 1
     document.querySelector('.guess').value = ''
+    document.querySelector('.score').textContent = scoreNumber
    
 })
 
@@ -31,6 +33,11 @@ document.querySelector('.check').addEventListener('click', () => {
         document.querySelector('body').style.backgroundColor='#60b347'
         document.querySelector('.number').style.width='30rem'
         document.querySelector('.number').textContent = rndInt
+
+        if(scoreNumber > highScore){
+            highScore = scoreNumber
+            document.querySelector('.highscore').textContent = highScore
+        }
     }
     else if(num > rndInt){
 
